@@ -16,7 +16,7 @@ TEMPLATE_FILE = "template.html"
 OUTPUT_FILE = "index.html"      
 
 # 닷홈 FTP 폴더 경로 (성인부 전용 폴더입니다. 닷홈에 이 폴더가 꼭 있어야 합니다!)
-FTP_DIR = "/html/adult_QT" 
+FTP_DIR = "/html/everyday_QT" 
 # ========================================
 
 def get_today_qt():
