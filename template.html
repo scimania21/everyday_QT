@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매일성경 묵상</title>
+    <style>
+        body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; background-color: #f7f9fa; color: #333; line-height: 1.8; padding: 15px; margin: 0; }
+        .container { background-color: #ffffff; padding: 30px 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 650px; margin: auto; border-top: 5px solid #2c3e50; }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .header h1 { font-size: 1.4rem; color: #2c3e50; margin: 0 0 10px 0; font-weight: bold; }
+        .date { font-size: 1rem; color: #7f8c8d; }
+        .main-title { font-size: 1.8rem; font-weight: bold; text-align: center; color: #1a252f; margin: 20px 0 5px 0; }
+        .verse-ref { text-align: center; font-size: 1rem; color: #c0392b; font-weight: bold; margin-bottom: 30px; }
+        
+        .section-title { font-size: 1.2rem; font-weight: bold; color: #2c3e50; margin-top: 35px; margin-bottom: 15px; display: flex; align-items: center; border-left: 4px solid #2c3e50; padding-left: 10px; }
+        .bible-box { background-color: #fcfdfd; padding: 20px; border: 1px solid #e1e8ed; border-radius: 8px; margin-bottom: 25px; }
+        .verse { margin-bottom: 12px; display: flex; }
+        .verse-num { font-weight: bold; color: #3498db; margin-right: 10px; min-width: 20px; }
+        .verse-text { color: #444; }
+        
+        .content-box { background-color: #f8f9fa; padding: 20px; border-radius: 8px; color: #333; margin-bottom: 20px; white-space: pre-wrap; }
+        .app-box { background-color: #f0f4f8; padding: 20px; border-radius: 8px; color: #2c3e50; margin-bottom: 20px; }
+        .prayer-box { background-color: #fdf5e6; padding: 20px; border-radius: 8px; color: #8e44ad; font-style: italic; }
+        
+        .btn-board { display: block; width: 100%; text-align: center; background-color: #2c3e50; color: white; padding: 15px 0; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 35px; transition: 0.3s; }
+        .btn-board:hover { background-color: #1a252f; }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 매일성경 묵상</h1>
+            <div class="date">{{DATE}}</div>
+        </div>
+
+        <div class="main-title">{{TITLE}}</div>
+        <div class="verse-ref">{{VERSE_REF}}</div>
+
+        <div class="section-title">오늘의 말씀</div>
+        <div class="bible-box">
+            {{BIBLE_TEXT}}
+        </div>
+
+        <div class="section-title">말씀 해설</div>
+        <div class="content-box">{{COMMENTARY}}</div>
+
+        <div class="section-title">삶의 적용</div>
+        <div class="app-box">{{APPLICATION}}</div>
+
+        <div class="section-title">오늘의 기도</div>
+        <div class="prayer-box">{{PRAYER}}</div>
+
+        <a href="board.php" class="btn-board">묵상 나눔 게시판 가기 ✍️</a>
+    </div>
+</body>
+</html>
