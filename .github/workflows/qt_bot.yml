@@ -1,0 +1,38 @@
+name: Daily Adult QT Bot
+
+on:
+  schedule:
+    # 한국 시간 새벽 2시 41분 (UTC 기준 전날 오후 5시 41분)
+    - cron: '41 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 로봇의 시계를 한국 시간으로 맞추고, 최신 엔진을 사용하게 합니다.
+    env:
+      TZ: 'Asia/Seoul'
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+    - name: 저장소 파일 가져오기
+      uses: actions/checkout@v4
+
+    - name: 파이썬 설치하기
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11' # 최신 파이썬 환경
+
+    - name: 필요한 패키지 설치하기
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 google-genai
+
+    - name: 파이썬 스크립트 실행 (QT 갱신 및 FTP 업로드)
+      # 👇 바로 이 부분이 로봇에게 금고 열쇠 4개를 쥐여주는 곳입니다! 👇
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        FTP_HOST: ${{ secrets.FTP_HOST }}
+        FTP_USER: ${{ secrets.FTP_USER }}
+        FTP_PASS: ${{ secrets.FTP_PASS }}
+      run: python qt_bot.py
